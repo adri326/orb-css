@@ -1,0 +1,3 @@
+[submodule "libs/default-material"]
+	path = libs/default-material
+	url = https://github.com/adri326/default-material.git
