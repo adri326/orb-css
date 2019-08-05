@@ -1,0 +1,22 @@
+{
+  "name": "orb-css",
+  "version": "1.0.0",
+  "description": "Pack your CSS together in a single file to reduce the number of requests per page, while easily maintaining your CSS codebase.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adri326/orb-css.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "Shad Amethyst",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/adri326/orb-css/issues"
+  },
+  "homepage": "https://github.com/adri326/orb-css#readme"
+}
