@@ -22,3 +22,41 @@ git clone https://github.com/adri326/orb-css
 cd orb-css
 npm i
 ```
+
+## Usage
+
+### Statically
+
+Put in the `libs` directory the libraries that you wish to pack.
+
+To pack files in a single, minified CSS file, run `node . pack <book_1> [book_2 [...]]`.
+Each `book` may be as follows:
+
+| Syntax | Description | Example |
+| :---- | :---- | :---- |
+| `library` | Select the entirety of a `library` | `default-material` |
+| `library.book` | Only select `book` in `library` | `default-material.main` |
+| `library.[book_1, book_2, ...]` | Select `book_1`, `book_2`, ... from `library` | `default-main.[main,colors,box,shadow]` |
+
+A `-o` parameter may be provided to specify where the packed file should be written to.
+
+### Dynamically
+
+The packer can be imported in your code with `require("orb-css/pack")`. It will expose a function, whose arguments are:
+
+* `books`, an array of book selectors, their syntax is described in the *Statically* subsection.
+* `params`, an object:
+  * `params.caching`, a boolean; if set to `true` (default), minified, singular files will be saved to the `build/` directory.
+    Note that the packed files are not cached themselves.
+
+Alternatively, you may use this script as an Express middleware:
+
+```js
+const orb = require("orb-css/middleware");
+
+app.use("/orb/:books", orb({
+  cached: true
+}));
+```
+
+The `:books` parameter is required.
