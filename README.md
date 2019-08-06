@@ -1,4 +1,4 @@
-# Orb CSS
+# Orb-CSS
 
 <div style="display: flex; align-items: center; justify-content: center;">
 
@@ -13,7 +13,7 @@ Once this is done, simply run the script to *pack* all of these files into a sin
 
 Alternatively, this library set may be dynamically served and packed on-the-go.
 
-## Installation
+## Installing Orb-CSS
 
 Clone this repository, then install its dependencies:
 
@@ -23,7 +23,7 @@ cd orb-css
 npm i
 ```
 
-## Usage
+## Using Orb-CSS
 
 ### Statically
 
@@ -85,3 +85,36 @@ The `:books` parameter is required. Requests made to this address should have th
   </body>
 </html>
 ```
+
+## Making an Orb-CSS library
+
+An Orb-CSS library consists of an `orb.json` file, located at its directory root, and the actual source code, located in the `/src` directory.
+
+The different informations describing Orb library should be written to the `orb.json` file. It may contain:
+
+```json
+{
+  "name": "name-of-the-package",
+  "description": "Description of the package!",
+  "repository": "<url of the repository for this package>",
+  "language": "css",
+  "prefix": "<which prefix the code in this package uses>",
+  "authors": ["Array", "of", "authors"]
+}
+```
+
+This file is optional, though, so you may use any other CSS library, which fulfills the next condition.
+
+Every source file (or *book*) parsed by Orb-CSS should be located in the `/src` directory.
+Each file will be considered as a *book*, and is supposed to be usable even without the other *books*.
+
+This is what the tree structure of an Orb-CSS library looks like:
+
+```
+orb.css
+src/
+| colors.css
+| indentation.less
+```
+
+Such a library can then be imported in the `/libs` directory of this repository and it can then be accessed.

@@ -20,13 +20,14 @@ module.exports = async function pack(books, params = {}) {
       bucket.push(fs.readFileSync(to_cached_path(file), "utf8"));
     } else {
       let minified;
+      let extension = path.extname(file).toLowerCase();
 
-      if (path.extname(file).toLowerCase() === ".less") {
+      if (extension === ".less") {
         let output = await less.render(fs.readFileSync(to_path(file), "utf8"), {
           filename: file
         });
         minified = minify.css(output.css);
-      } else {
+      } else if (extension === "css") {
         minified = minify.css(fs.readFileSync(to_path(file), "utf8"));
       }
 
