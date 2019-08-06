@@ -40,6 +40,12 @@ Each `book` may be as follows:
 
 A `-o` parameter may be provided to specify where the packed file should be written to.
 
+**Example:**
+
+```sh
+node . pack "default-material.[main, colors, box, shadow]"
+```
+
 ### Dynamically
 
 The packer can be imported in your code with `require("orb-css/pack")`. It will expose a function, whose arguments are:
@@ -59,4 +65,23 @@ app.use("/orb/:books", orb({
 }));
 ```
 
-The `:books` parameter is required.
+The `:books` parameter is required. Requests made to this address should have their book selectors split by colons (`:`). It may be followed by a `.css` extension.
+
+**Example:**
+
+```html
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>An example</title>
+
+    <link rel="stylesheet" href="/orb/default-material.[main,colors,box].css">
+  </head>
+  <body dm-primary-color="red" dm-secondary-color="gray">
+    <header class="dm-box-header" dm-background-color="secondary" dm-text-color="white" dm-size="big" dm-shadow="1">
+      <h1>Just an example</h1>
+    </header>
+  </body>
+</html>
+```
