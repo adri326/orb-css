@@ -12,3 +12,13 @@ With this script, you can import any number of CSS libraries, that are themselve
 Once this is done, simply run the script to *pack* all of these files into a single, minified CSS file.
 
 Alternatively, this library set may be dynamically served and packed on-the-go.
+
+## Installation
+
+Clone this repository, then install its dependencies:
+
+```sh
+git clone https://github.com/adri326/orb-css
+cd orb-css
+npm i
+```
