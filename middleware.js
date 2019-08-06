@@ -5,7 +5,6 @@ module.exports = function middleware(params = {}) {
   let {caching = true} = params;
 
   return function(req, res, next) {
-    console.time("request");
     let books_raw = req.params.books;
     if (!books_raw) throw new Error("books parameter was not set");
 
@@ -14,7 +13,6 @@ module.exports = function middleware(params = {}) {
     let books = books_raw.split(":").filter(Boolean);
 
     pack(books).then((packed) => {
-      console.timeEnd("request");
       res.setHeader("Content-Type", "text/css");
       res.status(200);
       res.send(packed);
